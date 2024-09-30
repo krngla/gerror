@@ -27,7 +27,8 @@ end, {})
 
 vim.api.nvim_create_user_command("Gighlight", function()
 	line = vim.fn.line(".")
-	vim.api.nvim_buf_add_highlight(0, -1, "ghighlight", line, 0, 80)
+	ns = vim.api.nvim_create_namespace("gighlight")
+	vim.api.nvim_buf_set_extmark(0, ns, line, 0, {})
 end, {})
 --[[
 local buf = create_buffer()
